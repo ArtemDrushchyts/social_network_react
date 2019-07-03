@@ -4,16 +4,17 @@ import MyPosts from './MyPosts/MyPosts';
 
 const Profile = () => {
     return (
-        <div className={styles.content}>
+        <div>
             <div>
-                <img src='https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' />
+                <img
+                    src='https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'/>
             </div>
             <div>
-                ava + descrip
+                ava + description
             </div>
-            <MyPosts />
+            <MyPosts/>
         </div>
     )
-}
+};
 
 export default Profile;
