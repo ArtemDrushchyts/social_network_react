@@ -10,18 +10,19 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
 const App = (props) => {
-    // let postData = [
-    //     {id: 1, message: 'Hi, how are you?', likeCount: 15},
-    //     {id: 1, message: 'It\'s my first post!', likeCount: 20}
-    // ];
     return (
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
                 <Navbar/>
                 <div className="app-wrapper-content">
-                    <Route path='/profile' render={()=> <Profile posts={props.posts}/>} />
-                    <Route path='/dialogs' render={()=> <Dialogs dialog={props.dialog} message={props.message} />}/>
+                    <Route path='/profile'
+                           render={()=> <Profile
+                               posts={props.state.profilePage.postData}/>} />
+                    <Route path='/dialogs'
+                           render={()=> <Dialogs
+                               dialog={props.state.messagesPage.dialogsData}
+                               message={props.state.messagesPage.messageDate} />}/>
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>
