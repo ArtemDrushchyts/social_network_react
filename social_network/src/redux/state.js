@@ -1,8 +1,10 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
     profilePage: {
         postData: [
             {id: 1, message: 'Hi, how are you?', likeCount: 15},
-            {id: 1, message: 'It\'s my first post!', likeCount: 20}
+            {id: 2, message: 'It\'s my first post!', likeCount: 20}
         ]
     },
     messagesPage: {
@@ -24,7 +26,17 @@ let state = {
            {id: 3, name: 'Alesya', src: 'https://cdn.iconscout.com/icon/free/png-256/avatar-367-456319.png' }
        ]
     }
+};
 
+export let addPost = (postMessage) => {
+    let newPost = {
+        id: 3,
+        message: postMessage,
+        likeCount: 0
+    };
+
+    state.profilePage.postData.push(newPost);
+    rerenderEntireTree(state);
 };
 
 export default state;
