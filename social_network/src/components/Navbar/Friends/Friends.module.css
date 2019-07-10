@@ -1,0 +1,13 @@
+
+.friendsAvatar {
+    width: 20px;
+    height: 20px;
+}
+.friendsContent {
+    display: grid;
+    justify-self: center;
+}
+.friendsContent img {
+    justify-self: center;
+}
+

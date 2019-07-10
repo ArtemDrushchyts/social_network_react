@@ -18,3 +18,10 @@
 .messages .message {
 
 }
+.avatarIcon {
+    width: 30px;
+    height: 30px;
+}
+.avatarLink {
+    margin-left: 10px;
+}

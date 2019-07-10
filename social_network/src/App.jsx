@@ -10,11 +10,11 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
 const App = (props) => {
-    return (
+       return (
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
-                <Navbar/>
+                <Navbar state={props.state.sitebar.friends}/>
                 <div className="app-wrapper-content">
                     <Route path='/profile'
                            render={()=> <Profile
