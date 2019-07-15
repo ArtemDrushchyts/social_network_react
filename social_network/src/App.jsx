@@ -13,7 +13,7 @@ const App = (props) => {
        return (
             <div className="app-wrapper">
                 <Header/>
-                <Navbar state={props.state.sitebar.friends}/>
+                <Navbar state={props.state.sidebar.friends}/>
                 <div className="app-wrapper-content">
                     <Route path='/profile'
                            render={()=> <Profile
