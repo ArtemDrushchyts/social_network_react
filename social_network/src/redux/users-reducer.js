@@ -1,13 +1,14 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
+const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
+const SET_TOTAL_USERS_COUNT = 'SET-TOTAL-USERS-COUNT';
 
 let initialState = {
-    users: [
-    //     {id: 1, photoUrl: 'https://vokrug.tv/pic/news/d/3/d/5/d3d530210cd546b48e3b7ca34559adb5.jpg', followed: false, fullName: 'Artem', status: 'I am a boss', location: {city: 'Minsk', country: 'Belarus'} },
-    //     {id: 2, photoUrl: 'https://vokrug.tv/pic/news/d/3/d/5/d3d530210cd546b48e3b7ca34559adb5.jpg', followed: true, fullName: 'Alesya', status: 'I am a boss too', location: {city: 'Volgograd', country: 'Russia'} },
-    //     {id: 3, photoUrl: 'https://vokrug.tv/pic/news/d/3/d/5/d3d530210cd546b48e3b7ca34559adb5.jpg', followed: false, fullName: 'Senya', status: 'I am a cat', location: {city: 'Moscow', country: 'Russia'} }
-    ]
+    users: [ ],
+    pagesSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -33,7 +34,13 @@ const usersReducer = (state = initialState, action) => {
                 })
             };
         case SET_USERS: {
-            return {...state, users: [ ...state.users, ...action.users]}
+            return {...state, users: action.users}
+        }
+        case SET_CURRENT_PAGE: {
+            return {...state, currentPage: action.currentPage}
+        }
+        case SET_TOTAL_USERS_COUNT: {
+            return {...state, totalUsersCount: action.count}
         }
         default:
             return state;
@@ -43,5 +50,7 @@ const usersReducer = (state = initialState, action) => {
 export const followAC = (userId) => ({ type: FOLLOW, userId });
 export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId });
 export const setUsersAC = (users) => ({type: SET_USERS, users});
+export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+export const setUsersTotalCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount});
 
 export default usersReducer;
